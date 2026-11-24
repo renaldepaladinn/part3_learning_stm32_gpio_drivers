@@ -54,5 +54,6 @@ typedef enum {
 
 void gpio_init(GPIO_TypeDef * gpio, GPIO_Pin_t pin, GPIO_Mode_t mode, GPIO_Pull_t pull);
 void gpio_write(GPIO_TypeDef * gpio, GPIO_Pin_t pin, GPIO_Value_t value);
+GPIO_Value_t gpio_read(GPIO_TypeDef * gpio, GPIO_Pin_t pin);
 
 #endif // DEVICE_DRIVERS_GPIO_H

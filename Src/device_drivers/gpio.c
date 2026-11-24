@@ -94,3 +94,11 @@ void gpio_write(GPIO_TypeDef * gpio, GPIO_Pin_t pin, GPIO_Value_t value){
         gpio -> BSRR |= (1UL << (pin + 16U));
     }
 }
+
+GPIO_Value_t gpio_read(GPIO_TypeDef * gpio, GPIO_Pin_t pin){
+    if((gpio -> IDR & (1UL << pin)) != 0U){
+        return GPIO_HIGH;
+    } else {
+        return GPIO_LOW;
+    }
+}
