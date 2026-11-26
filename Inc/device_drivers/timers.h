@@ -7,4 +7,4 @@
 void pwm_init(TIM_TypeDef * timer);
 void pwm_begin(TIM_TypeDef * timer);
 
-#endif // DEVICE_DRIVERS_GPIO_H3
+#endif // DEVICE_DRIVERS_TIMERS_H
