@@ -22,7 +22,8 @@ set(PROJECT_NAME part3_learning_stm32_gpio_drivers)
 
 # Create an executable object type
 add_executable(${PROJECT_NAME}
-  Src/device_drivers/timers.c)
+  Src/device_drivers/timers.c
+  Src/device_drivers/clocks.c)
 
 # Include additional CMake files for flags, components, and files
 include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/flags.cmake)
