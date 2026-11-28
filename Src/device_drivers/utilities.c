@@ -1,11 +1,11 @@
 #include <device_drivers/utilities.h>
 
 void delay_init() {
-    TIM3 -> PSC = 64U-1U; // Set prescaler to divide clock by 8
-    TIM3 -> ARR = 0xFFFFU; // Set auto-reload value to maximum
-    TIM3 -> CNT = 0U; // Reset counter
-    TIM3 -> EGR |= 0x01U; // Generate an update event to reload the prescaler value immediately
-    TIM3 -> CR1 |= 0x01U; // Enable counter
+    TIM2 -> PSC = 64U-1U; // Set prescaler to divide clock by 8
+    TIM2 -> ARR = 0xFFFFU; // Set auto-reload value to maximum
+    TIM2 -> CNT = 0U; // Reset counter
+    TIM2 -> EGR |= 0x01U; // Generate an update event to reload the prescaler value immediately
+    TIM2 -> CR1 |= 0x01U; // Enable counter
 }
 
 void delay_us(uint32_t us) {
@@ -16,8 +16,8 @@ void delay_us(uint32_t us) {
         } else {
             delay = us;
         }
-        uint16_t start_time = TIM3 -> CNT;
-        while ((uint16_t)(TIM3 -> CNT - start_time) < delay) {
+        uint16_t start_time = TIM2 -> CNT;
+        while ((uint16_t)(TIM2 -> CNT - start_time) < delay) {
             // Wait until the specified time has elapsed
         }
         us -= delay;

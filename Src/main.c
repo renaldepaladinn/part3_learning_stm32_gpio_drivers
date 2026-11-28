@@ -13,13 +13,13 @@ int main (void) {
 
     gpio_init(GPIOA, GPIO_PIN_2, OUTPUT_10MHZ_GENERAL_PUSH_PULL, GPIO_NO_PULL);
     gpio_init(GPIOC, GPIO_PIN_15, INPUT_PULL_UP_DOWN, GPIO_PULL_DOWN);
-    gpio_init(GPIOA, GPIO_PIN_0, OUTPUT_10MHZ_AF_PUSH_PULL, GPIO_NO_PULL);
+    gpio_init(GPIOA, GPIO_PIN_6, OUTPUT_10MHZ_AF_PUSH_PULL, GPIO_NO_PULL);
     gpio_init(GPIOA, GPIO_PIN_1, OUTPUT_10MHZ_GENERAL_PUSH_PULL, GPIO_NO_PULL);
 
-    pwm_init(TIM2);
-    pwm_begin(TIM2);
+    pwm_init(CH1);
+    pwm_begin();
 
-    delay_init();
+    // delay_init();
     
     while (1) {
         volatile GPIO_Value_t button_state = gpio_read(GPIOC, GPIO_PIN_15);
@@ -29,9 +29,9 @@ int main (void) {
             gpio_write(GPIOA, GPIO_PIN_2, GPIO_LOW);
         } 
 
-        gpio_write(GPIOA, GPIO_PIN_1, GPIO_HIGH);
-        delay_us(5000000);
-        gpio_write(GPIOA, GPIO_PIN_1, GPIO_LOW);
-        delay_us(5000000);
+        // gpio_write(GPIOA, GPIO_PIN_1, GPIO_HIGH);
+        // delay_us(5000000);
+        // gpio_write(GPIOA, GPIO_PIN_1, GPIO_LOW);
+        // delay_us(5000000);
     }
 }

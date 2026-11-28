@@ -6,7 +6,7 @@ void clocks_64MHz_init(void) {
 
     FLASH -> ACR &= ~FLASH_ACR_LATENCY;
     FLASH -> ACR |= FLASH_ACR_LATENCY_2;
-     FLASH->ACR |= FLASH_ACR_PRFTBE;
+    FLASH->ACR |= FLASH_ACR_PRFTBE;
 
     RCC -> CR &= ~RCC_CR_PLLON;
     while (RCC -> CR & RCC_CR_PLLRDY);
